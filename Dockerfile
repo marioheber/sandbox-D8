@@ -1,6 +1,7 @@
 FROM tutum/apache-php
 
 ## Install Mysql Client
+RUN apt-get update
 RUN apt-get install -qq -y mysql-client
 
 ### INSTALL COMPOSER
