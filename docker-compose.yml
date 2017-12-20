@@ -1,5 +1,5 @@
 web:
-   build: . 
+   build: .
    environment:
      - ALLOW_OVERRIDE=true
    ports:
@@ -10,14 +10,14 @@ web:
      - ./app:/app
 
 db:
-  image: mariadb
-  restart: always
+  container_name: sandroboxdb
+  image: mysql:5.7
+  ports:
+    - "3306:3306"
   volumes:
-    - ./mysql:/var/lib/mysql
+    - /var/lib/mysql
   environment:
     MYSQL_ROOT_PASSWORD: root
     MYSQL_USER: admin
     MYSQL_PASSWORD: test
     MYSQL_DATABASE: database
-  ports:
-    - "8889:3306"
